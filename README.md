@@ -1,2 +1,2 @@
-# Animal-Crossing-Social-Media
+# ACNH-Social-Media
 Django social media application to share your favorite Animal Crossing villagers
