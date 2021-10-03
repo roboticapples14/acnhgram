@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Post {% endblock title %}
+
+
+{% block content %} 
+  {% if user.is_authenticated %}
+    <header>
+      <h2>New Post</h2>
+    </header>
+    <div class="navbar">
+      <a href="{% url 'showcase' %}">Showcase</a>
+    </div>
+    <form method="POST" class="post-form">
+      {% csrf_token %}
+      {{form.as_p}}
+      <button type="submit">Submit</button>
+    </form>
+  {% else %}
+    <p>You are not logged in</p>
+    <a href="{% url 'login' %}">Login</a>
+  {% endif %}
+
+{% endblock content %}

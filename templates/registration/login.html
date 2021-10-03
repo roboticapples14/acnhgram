@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+  <header>
+    <h2>Login</h2>
+  </header>
+  <style>
+    header{
+      border-bottom: 5px solid black;
+    }
+  </style>
+  <form method="post" class="post-form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Login</button>
+      <p class="redir">Don't have an account? <a href = "{% url 'signup' %}">Sign Up</a></p>
+  </form>
+{% endblock content %}

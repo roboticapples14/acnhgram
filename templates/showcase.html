@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %} Showcase {% endblock title %}
+
+
+{% block content %} 
+  {% if user.is_authenticated %}
+    <header class = "showcaseHeader">
+      <h1>Showcase</h1>
+    </header>
+    <div class="navbar">
+      <a href="{% url 'post_new' %}">Post</a>
+      <a href="{% url 'logout' %}">Logout</a>
+    </div>
+    <div class="showcase">
+      {% for ShowcasePost in object_list %}
+        <div class="post">
+          <h2>{{ShowcasePost.name}}</h2>
+          <h3>Posted By: {{user.username}}</h3>
+          <h3><b>Teir:</b> {{ShowcasePost.teir}}</h3>
+          <h3><b>Personality:</b> {{ShowcasePost.personality}}</h3>
+          <h3><b>Species:</b> {{ShowcasePost.species}}</h3>        
+          <img src="{{ShowcasePost.image}}">
+          <p class="desc">{{ShowcasePost.description}}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="login">
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">Login</a>
+    </div>
+  {% endif %}
+
+{% endblock content %}

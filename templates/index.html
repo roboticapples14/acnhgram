@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock title %}
+
+
+{% block content %} 
+  {% if user.is_authenticated %}
+    <header>
+      <h1>Hi {{user.username}}</h1>
+    </header>
+    <div class="navbar">
+      <a href="{% url 'logout' %}">Logout</a>
+      <a href="{% url 'showcase' %}">Showcase</a>
+    </div>
+  {% else %}
+    <header>
+      <h1>Animal Crossing Villager Showcase</h1>
+    </header>
+    <div class="navbar">
+    </div>
+    <div class="login">
+      <p>You are not logged in</p>
+      <a href="{% url 'login' %}">Login</a>
+      <br>
+      <a href="{% url 'signup' %}">Sign Up</a>
+    </div>
+  {% endif %}
+
+{% endblock content %}

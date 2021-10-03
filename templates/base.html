@@ -1,0 +1,14 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %} Django Showcase {% endblock title %}</title>
+  <link href="{% static 'css/style.css' %}" rel = "stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+  {% block content %}
+
+  {% endblock content %}
+</body>
+</html>
